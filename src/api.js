@@ -1,33 +1,14 @@
 
-async function getTask() {
-    try {
-        const response = await fetch('http://localhost:3000/api/task');
-        const data = await response.json();
-        // console.log(data);
-        return data
-    } catch (error) {
-        console.error(error);
-    }
-}
-
-// Función para mostrar las tareas en la lista al cargar la página
-// async function mostrarTareas() {
+// async function getTask() {
 //     try {
-//         const tareas = await extraerTarea();
-//         tareas.forEach(t => {
-//             displayUploadedFile(t); // Reutilizar la función existente
-//             fileData.push(t); // Agregar tarea a fileData
-//         });
-//         // Actualizar el contador de tareas completadas
-//         updateCompletedCount();
+//         const response = await fetch('http://localhost:3000/api/task');
+//         const data = await response.json();
+//         // console.log(data);
+//         return data
 //     } catch (error) {
-//         console.error("Error al realizar la solicitud:", error);
+//         console.error(error);
 //     }
 // }
-
-// // Inicializar las tareas al cargar la página
-// window.addEventListener("load", mostrarTareas);
-
 
 
 
@@ -54,19 +35,6 @@ async function extraerTareas() {
 
 
 
-
-
-// async function getTask() {
-//     try {
-//         const response = await fetch('http://localhost:3000/api/task');
-//         const data = await response.json();
-//         console.log(data);
-//         return data
-        
-//     } catch (error) {
-//         console.error(error);
-//     }
-// }
 
 async function guardarTareas(nuevaTarea) {
     try {
@@ -121,7 +89,58 @@ async function eliminarTareas(id) {
 
 
 
+// Nueva función para actualizar tareas
+async function actualizarTareas(id, tareaActualizada) {
+    try {
+      const response = await fetch("http://localhost:3000/api/task/" + id, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          task: tareaActualizada
+        })
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        return data;
+      } else {
+        console.error("Error al actualizar la tarea:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error al realizar la solicitud:", error);
+    }
+  }
+
+  async function actualizarTareasFinalizadas(id, check) {
+    
+    try {
+      const response = await fetch("http://localhost:3000/api/task/" + id, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          "check": check
+        })
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        return data;
+      } else {
+        console.error("Error al actualizar la tarea:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error al realizar la solicitud:", error);
+    }
+  }
 
 
-export {guardarTareas , getTask, extraerTareas , eliminarTareas }
+
+
+
+
+export {guardarTareas ,  extraerTareas , eliminarTareas , actualizarTareas, actualizarTareasFinalizadas }
   
