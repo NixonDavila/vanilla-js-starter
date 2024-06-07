@@ -1,0 +1,82 @@
+body{
+
+    background-image: url(../src/img/Mountains.jpg);
+    width: 100%;
+
+    height: 80%;
+
+    text-align: center;
+}
+
+
+
+#contenedor{
+
+    background-color: antiquewhite;
+    border: 2px solid;
+
+    width: 74%;
+
+    height: 600px;
+    
+    margin-left: 13%;
+
+    text-align: center;
+}
+
+.contenedor2{
+    width: 100%;
+height: 50px;
+display: flex;
+justify-content: space-around;
+align-items: center;
+}
+
+
+#inicio{
+    background-color: black;
+    width: 100%;
+    height: 30px;
+}
+
+
+h1{
+    margin-left: 8%;
+}
+
+
+#tareas{
+    border: 2px solid;
+
+    width: 84%;
+   
+    height: 50%;
+  
+    margin-left: 8%;
+
+    text-align: center;
+
+    overflow: auto;
+}
+
+
+
+#agregarTarea {
+    color: #030202;
+    border: 2px solid rgb(216, 2, 134);
+    border-radius: 0px;
+    padding: 14px 36px;
+    display: block;
+    /* Hace que el botón ocupe toda la anchura disponible y esté uno debajo del otro */
+    
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 #D80286;
+    -webkit-transition: ease-out 0.4s;
+    -moz-transition: ease-out 0.4s;
+    transition: ease-out 0.4s;
+    margin: 10px 0;
+    /* Espaciado entre los botones */
+}
+
